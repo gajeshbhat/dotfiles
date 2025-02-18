@@ -34,19 +34,20 @@ source ~/.bashrc
 
 This configuration enhances the GNU Screen experience with custom key bindings, terminal handling, and real-time system monitoring:
 
-- **Disables startup message**
+- Disables startup message**
 - **Adds key bindings:**
   - `\` → Quit
   - `K` → Kill window
   - `I` → Enable login
   - `O` → Disable login
   - `}` → View command history
+
 - **Fetches system metrics** dynamically:
   - CPU usage every 2 seconds
   - Memory usage every 5 seconds
-  - Network bandwidth every 10 seconds
-  - Disk usage every 10 seconds
-  - Number of running Docker containers and images. **Note**: Make sure your docker is accesible via the `docker` command without `sudo`.
+  - Network bandwidth every 20 seconds
+  - Disk usage every 30 seconds
+
 - **Displays system stats in the status bar**
 
 ## Vim Configuration (`.vimrc` & `.vimrc.plug`)
@@ -66,5 +67,4 @@ This configuration enhances the GNU Screen experience with custom key bindings, 
 ```
 
 ## License
-
 This repository is open-source under the MIT License. Feel free to use and modify it.
