@@ -52,6 +52,18 @@ This configuration enhances the GNU Screen experience with custom key bindings, 
 
 ## Vim Configuration (`.vimrc` & `.vimrc.plug`)
 
+1. Install Vim Plugin Manager:
+```sh
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+mkdir -p ~/.vim/plugins
+
+2. Install Plugins:
+```sh
+vim +PlugInstall +qall
+```
+
 - **Key features:**
   - Syntax highlighting, line numbers, and indentation settings.
   - Toggle paste mode with `<F2>`.
