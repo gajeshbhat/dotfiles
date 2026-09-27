@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Back up local dotfile edits (incl. ~/.claude/settings.json) to the dotfiles repo.
+set -euo pipefail
+chezmoi re-add
+if chezmoi git -- diff --quiet && chezmoi git -- diff --cached --quiet; then
+  echo "[+] Nothing to back up."
+  exit 0
+fi
+chezmoi git -- add -A
+chezmoi git -- commit -m "backup: $(hostname) $(date +%Y-%m-%d)"
+chezmoi git -- push
+echo "[+] Dotfiles backed up."

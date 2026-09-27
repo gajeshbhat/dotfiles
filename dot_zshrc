@@ -1,0 +1,17 @@
+# Function to get current Git branch
+function parse_git_branch() {
+    git branch 2>/dev/null | sed -n 's/* \(.*\)/ (\1)/p'
+}
+
+# Set prompt with git branch
+setopt PROMPT_SUBST
+PROMPT='%F{green}%n@%m%f:%F{blue}%~%f%F{red}$(parse_git_branch)%f$ '
+
+# --- Homebrew ---
+if [ -x /opt/homebrew/bin/brew ]; then eval "$(/opt/homebrew/bin/brew shellenv)"; elif [ -x /usr/local/bin/brew ]; then eval "$(/usr/local/bin/brew shellenv)"; fi
+# --- PATH (tools installed by auto-workspace) ---
+for d in "$HOME/.local/bin" "$HOME/fvm/bin" "$HOME/fvm/default/bin" "/usr/local/go/bin" "$HOME/go/bin"; do
+  [ -d "$d" ] && case ":$PATH:" in *":$d:"*) ;; *) PATH="$d:$PATH" ;; esac
+done
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+export PATH
