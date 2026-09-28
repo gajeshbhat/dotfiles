@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# enabledPlugins hash: {{ include "dot_claude/settings.json" | sha256sum }}
+set -uo pipefail
+command -v claude >/dev/null 2>&1 || { echo "[!] claude not installed; skipping plugin install"; exit 0; }
+plugins="$(python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); print("\n".join(k for k,v in d.get("enabledPlugins",{}).items() if v))' "$HOME/.claude/settings.json")"
+for p in $plugins; do
+  claude plugin install "$p" >/dev/null 2>&1 && echo "[+] plugin $p" || echo "[!] could not install plugin $p"
+done

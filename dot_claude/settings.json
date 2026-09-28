@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true,
+    "code-review@claude-plugins-official": false,
+    "feature-dev@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true,
+    "receipts@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true,
+    "mcp-server-dev@claude-plugins-official": true,
+    "desktop-commander@claude-plugins-official": false
+  },
+  "skillOverrides": {
+    "anthropic-skills:computer-use": "off",
+    "anthropic-skills:built-in-browser": "off",
+    "anthropic-skills:chrome-browser": "off",
+    "anthropic-skills:morning": "off",
+    "anthropic-skills:import-memory": "off"
+  },
+  "theme": "dark",
+  "editorMode": "normal",
+  "timeFormat": "12-hour",
+  "worktree": {
+    "baseRef": "fresh"
+  },
+  "enableWorkflows": true,
+  "feedbackDrafts": "notify",
+  "autoContinueAtUsageLimit": true
+}
