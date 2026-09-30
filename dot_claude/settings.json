@@ -13,6 +13,11 @@
     "baseRef": "fresh"
   },
   "enableWorkflows": true,
+  "workflowSizeGuideline": "small",
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
+  },
   "enabledPlugins": {
     "superpowers@claude-plugins-official": true,
     "code-review@claude-plugins-official": false,
@@ -22,7 +27,11 @@
     "claude-code-setup@claude-plugins-official": true,
     "mcp-server-dev@claude-plugins-official": true,
     "desktop-commander@claude-plugins-official": false,
-    "ponytail@ponytail": true
+    "ponytail@ponytail": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "context7@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "ponytail": {
@@ -32,12 +41,11 @@
       }
     }
   },
+  "outputStyle": "Concise",
   "feedbackDrafts": "notify",
   "timeFormat": "12-hour",
   "theme": "dark-daltonized",
   "editorMode": "normal",
   "preferredNotifChannel": "auto",
-  "autoContinueAtUsageLimit": true,
-  "outputStyle": "Concise",
-  "workflowSizeGuideline": "small"
+  "autoContinueAtUsageLimit": true
 }

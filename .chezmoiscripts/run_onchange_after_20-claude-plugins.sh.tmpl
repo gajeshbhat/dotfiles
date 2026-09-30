@@ -14,3 +14,14 @@ plugins="$(python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); print("\
 for p in $plugins; do
   claude plugin install "$p" >/dev/null 2>&1 && echo "[+] plugin $p" || echo "[!] could not install plugin $p"
 done
+
+# Language servers for the *-lsp plugins, when the toolchain is present
+if command -v rustup >/dev/null 2>&1; then
+  rustup component add rust-analyzer >/dev/null 2>&1 && echo "[+] rust-analyzer"
+fi
+if command -v go >/dev/null 2>&1 && ! command -v gopls >/dev/null 2>&1 && [ ! -x "$HOME/go/bin/gopls" ]; then
+  go install golang.org/x/tools/gopls@latest && echo "[+] gopls"
+fi
+if command -v uv >/dev/null 2>&1 && ! command -v pyright-langserver >/dev/null 2>&1; then
+  uv tool install pyright && echo "[+] pyright"
+fi
