@@ -1,4 +1,5 @@
 README.md
+tests
 {{ if ne .chezmoi.os "linux" }}
 .bashrc
 {{ end }}
