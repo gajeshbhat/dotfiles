@@ -1,8 +1,16 @@
 #!/usr/bin/env bash
-# enabledPlugins hash: {{ include "dot_claude/settings.json" | sha256sum }}
+# settings.json hash: {{ include "dot_claude/settings.json" | sha256sum }}
+# Adds the GitHub marketplaces in extraKnownMarketplaces, then installs every enabled plugin.
 set -uo pipefail
 command -v claude >/dev/null 2>&1 || { echo "[!] claude not installed; skipping plugin install"; exit 0; }
-plugins="$(python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); print("\n".join(k for k,v in d.get("enabledPlugins",{}).items() if v))' "$HOME/.claude/settings.json")"
+settings="$HOME/.claude/settings.json"
+
+marketplaces="$(python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); print("\n".join(m["source"]["repo"] for m in d.get("extraKnownMarketplaces",{}).values() if m.get("source",{}).get("source")=="github"))' "$settings")"
+for m in $marketplaces; do
+  claude plugin marketplace add "$m" >/dev/null 2>&1 && echo "[+] marketplace $m" || echo "[=] marketplace $m (already added or unavailable)"
+done
+
+plugins="$(python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); print("\n".join(k for k,v in d.get("enabledPlugins",{}).items() if v))' "$settings")"
 for p in $plugins; do
   claude plugin install "$p" >/dev/null 2>&1 && echo "[+] plugin $p" || echo "[!] could not install plugin $p"
 done
