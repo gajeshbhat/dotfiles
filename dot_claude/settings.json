@@ -7,7 +7,17 @@
     "anthropic-skills:built-in-browser": "off",
     "anthropic-skills:chrome-browser": "off",
     "anthropic-skills:morning": "off",
-    "anthropic-skills:import-memory": "off"
+    "anthropic-skills:import-memory": "off",
+    "anthropic-skills:docx": "off",
+    "anthropic-skills:pptx": "off",
+    "anthropic-skills:xlsx": "off",
+    "anthropic-skills:docs": "off",
+    "anthropic-skills:google-workspace": "off",
+    "ponytail:ponytail": "user-invocable-only",
+    "ponytail:ponytail-gain": "user-invocable-only",
+    "ponytail:ponytail-help": "user-invocable-only",
+    "ponytail:ponytail-debt": "user-invocable-only",
+    "ponytail:ponytail-audit": "user-invocable-only"
   },
   "worktree": {
     "baseRef": "fresh"
@@ -19,19 +29,14 @@
     "command": "~/.claude/statusline.sh"
   },
   "enabledPlugins": {
-    "superpowers@claude-plugins-official": true,
-    "code-review@claude-plugins-official": false,
-    "feature-dev@claude-plugins-official": true,
     "security-guidance@claude-plugins-official": true,
-    "receipts@claude-plugins-official": true,
-    "claude-code-setup@claude-plugins-official": true,
-    "mcp-server-dev@claude-plugins-official": true,
-    "desktop-commander@claude-plugins-official": false,
     "ponytail@ponytail": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true,
-    "context7@claude-plugins-official": true
+    "superpowers@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "ponytail": {
