@@ -18,8 +18,8 @@ untracked `~/.gitconfig.local` for machine-specific settings (signing key etc.).
 - Shell: `.bashrc` (Linux; PATH for uv, Go, Rust, fvm/Flutter), `.zshrc` (macOS only)
 - `.vimrc` + `.vimrc.plug` (vim-plug installed and plugins synced on apply), `.screenrc`, `.gitconfig`
 - Claude Code: `~/.claude/settings.json`, `~/.claude/CLAUDE.md` (my working preferences), `~/.claude/statusline.sh`, `~/.claude/skills/workshop-agent`
-- macOS: `Brewfile` (formulae, casks, App Store, VS Code extensions; `brew bundle` runs on apply), `.zprofile`, `~/.ssh/config`, `~/.tmux.conf`, `~/.gnupg/gpg-agent.conf`, `~/.config/gh/config.yml`
-- Dev tools outside brew (pinned Go tools, `@openrig/cli`, `skillkit`, the Tessl MCP server) by `.chezmoiscripts/*30-dev-tools.sh`
+- macOS only (ignored on Linux): `Brewfile` (formulae, casks, App Store, VS Code extensions; `brew bundle` runs on apply), `.zprofile`, `~/.ssh/config`, `~/.tmux.conf`, `~/.gnupg/gpg-agent.conf`, `~/.config/gh/config.yml`
+- macOS: dev tools outside brew (pinned Go tools, `@openrig/cli`, `skillkit`, the Tessl MCP server) by `.chezmoiscripts/*30-dev-tools.sh`
 - `~/.local/bin/dotfiles-backup`
 
 Never tracked: credentials (`~/.ssh` keys, `~/.config/gh/hosts.yml`, `~/.tessl`), shell history, sessions, projects, caches, `~/.claude/skills/synced/`.

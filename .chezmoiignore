@@ -10,5 +10,9 @@ Brewfile
 {{ if ne .chezmoi.os "darwin" }}
 .zshrc
 .zprofile
+.ssh/config
+.tmux.conf
+.config/gh/config.yml
 .gnupg/gpg-agent.conf
+.chezmoiscripts/30-dev-tools.sh
 {{ end }}
