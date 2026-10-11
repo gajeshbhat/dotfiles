@@ -19,3 +19,5 @@
 - For new features, agree the design with me first, briefly; then implement with TDD.
 - Keep multi-agent workflows lean (few agents, one review pass), and prefer pinned, well-maintained official sources for tools and packages.
 - When skills or plugins disagree: project instructions first, then this file, then ponytail, then everything else.
+
+@../.tessl/RULES.md

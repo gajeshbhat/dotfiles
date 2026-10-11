@@ -1,0 +1,7 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/usr/bin/env bash
+# Brewfile hash: {{ include "Brewfile" | sha256sum }}
+set -uo pipefail
+command -v brew >/dev/null 2>&1 || { echo "[!] brew not installed; skipping Brewfile"; exit 0; }
+brew bundle --file "{{ .chezmoi.sourceDir }}/Brewfile"
+{{ end -}}
