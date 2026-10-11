@@ -1,0 +1,3 @@
+
+# Homebrew for login shells that skip .zshrc (ssh commands, GUI-launched terminals)
+eval "$(/opt/homebrew/bin/brew shellenv)"

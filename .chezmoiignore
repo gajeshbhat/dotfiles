@@ -1,8 +1,18 @@
 README.md
 tests
+AGENTS.md
+CLAUDE.md
+tessl.json
+Brewfile
 {{ if ne .chezmoi.os "linux" }}
 .bashrc
 {{ end }}
 {{ if ne .chezmoi.os "darwin" }}
 .zshrc
+.zprofile
+.ssh/config
+.tmux.conf
+.config/gh/config.yml
+.gnupg/gpg-agent.conf
+.chezmoiscripts/30-dev-tools.sh
 {{ end }}

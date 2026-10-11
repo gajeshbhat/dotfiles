@@ -6,6 +6,7 @@ Personal dotfiles managed with [chezmoi](https://www.chezmoi.io).
 sh -c "$(curl -fsLS get.chezmoi.io)" -- -b ~/.local/bin init --apply gajeshbhat/dotfiles   # new machine
 dotfiles-backup          # push local edits back here
 ./tests/test-claude.sh   # check Claude config
+./tests/test-managed.sh  # check what chezmoi manages
 ./tests/workshop.sh      # fresh-machine restore in Ubuntu 24.04 + 26.04 Workshop containers
 ```
 
@@ -17,9 +18,11 @@ untracked `~/.gitconfig.local` for machine-specific settings (signing key etc.).
 - Shell: `.bashrc` (Linux; PATH for uv, Go, Rust, fvm/Flutter), `.zshrc` (macOS only)
 - `.vimrc` + `.vimrc.plug` (vim-plug installed and plugins synced on apply), `.screenrc`, `.gitconfig`
 - Claude Code: `~/.claude/settings.json`, `~/.claude/CLAUDE.md` (my working preferences), `~/.claude/statusline.sh`, `~/.claude/skills/workshop-agent`
+- macOS only (ignored on Linux): `Brewfile` (formulae, casks, App Store, VS Code extensions; `brew bundle` runs on apply), `.zprofile`, `~/.ssh/config`, `~/.tmux.conf`, `~/.gnupg/gpg-agent.conf`, `~/.config/gh/config.yml`
+- macOS: dev tools outside brew (pinned Go tools, `@openrig/cli`, `skillkit`, the Tessl MCP server) by `.chezmoiscripts/*30-dev-tools.sh`
 - `~/.local/bin/dotfiles-backup`
 
-Never tracked: credentials, shell history, sessions, projects, caches, `~/.claude/skills/synced/`.
+Never tracked: credentials (`~/.ssh` keys, `~/.config/gh/hosts.yml`, `~/.tessl`), shell history, sessions, projects, caches, `~/.claude/skills/synced/`.
 
 ## Claude Code
 
