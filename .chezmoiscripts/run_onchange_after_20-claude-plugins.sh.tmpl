@@ -15,13 +15,15 @@ for p in $plugins; do
   claude plugin install "$p" >/dev/null 2>&1 && echo "[+] plugin $p" || echo "[!] could not install plugin $p"
 done
 
-# Language servers for the *-lsp plugins, when the toolchain is present
-if command -v rustup >/dev/null 2>&1; then
-  rustup component add rust-analyzer >/dev/null 2>&1 && echo "[+] rust-analyzer"
-fi
+# Language server for the gopls-lsp plugin, when the toolchain is present
 if command -v go >/dev/null 2>&1 && ! command -v gopls >/dev/null 2>&1 && [ ! -x "$HOME/go/bin/gopls" ]; then
   go install golang.org/x/tools/gopls@latest && echo "[+] gopls"
 fi
-if command -v uv >/dev/null 2>&1 && ! command -v pyright-langserver >/dev/null 2>&1; then
-  uv tool install pyright && echo "[+] pyright"
+
+# CLIs behind the jevgrep skill and Spec Kit, pinned. `jg auth` (provider key) is manual.
+if command -v npm >/dev/null 2>&1 && ! command -v jg >/dev/null 2>&1; then
+  npm install -g --prefix "$HOME/.local" @dzhng/jevgrep@0.8.0 skillkit@1.24.0 >/dev/null 2>&1 && echo "[+] jevgrep, skillkit"
+fi
+if command -v uv >/dev/null 2>&1 && ! command -v specify >/dev/null 2>&1; then
+  uv tool install specify-cli --from git+https://github.com/github/spec-kit.git@v1.1.1 >/dev/null 2>&1 && echo "[+] specify"
 fi
