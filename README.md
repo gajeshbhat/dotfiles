@@ -42,7 +42,6 @@ for the LSP plugin (gopls via go) installed if missing:
 | claude-code-setup | claude-plugins-official | Recommends hooks, skills, MCP servers for a repo |
 | security-guidance | claude-plugins-official | Security warnings on edits and commits |
 | gopls-lsp | claude-plugins-official | Code intelligence for Go |
-| context7 | claude-plugins-official | Live library docs (MCP) |
 | caveman | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | Terse replies (plugin only, not the proxy) |
 
 CLIs installed on apply, pinned: `jg` ([jevgrep](https://github.com/dzhng/jevgrep), run `jg auth` once), `skillkit`,
