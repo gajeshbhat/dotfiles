@@ -27,5 +27,3 @@
 - Long unattended or risky work: `/workshop-agent`; LXD builds and tests: `/vm-test`, never on the host.
 - Multi-step feature with a written spec requested: `specify` (Spec Kit); otherwise superpowers brainstorming, then TDD.
 - Prose stays terse (Concise style, caveman); code, commits and PR text are written normally.
-
-@../.tessl/RULES.md

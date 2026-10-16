@@ -17,8 +17,3 @@ if command -v npm >/dev/null 2>&1; then
     npm ls -g --depth=0 "${pkg%@*}" >/dev/null 2>&1 || { npm install -g "$pkg" >/dev/null && echo "[+] $pkg"; }
   done
 fi
-
-# Tessl MCP server for Claude Code (the tessl CLI itself is installed separately)
-if command -v claude >/dev/null 2>&1 && command -v tessl >/dev/null 2>&1; then
-  claude mcp get tessl >/dev/null 2>&1 || { claude mcp add --scope user tessl -- tessl mcp start >/dev/null && echo "[+] tessl MCP"; }
-fi

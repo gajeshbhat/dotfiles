@@ -1,8 +1,5 @@
 README.md
 tests
-AGENTS.md
-CLAUDE.md
-tessl.json
 Brewfile
 {{ if ne .chezmoi.os "linux" }}
 .bashrc

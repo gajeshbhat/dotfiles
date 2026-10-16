@@ -1,8 +1,0 @@
-{
-  "name": "dotfiles",
-  "mode": "vendored",
-  "agents": [
-    "claude-code"
-  ],
-  "dependencies": {}
-}

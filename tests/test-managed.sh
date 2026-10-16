@@ -21,7 +21,7 @@ for f in $macfiles; do has "$mac" "$f" darwin; hasnt "$linux" "$f" linux; done
 has "$linux" .bashrc linux; hasnt "$mac" .bashrc darwin
 for f in .claude/settings.json .claude/CLAUDE.md .gitconfig .vimrc; do has "$mac" "$f" darwin; has "$linux" "$f" linux; done
 for os in "$mac" "$linux"; do
-  for f in AGENTS.md CLAUDE.md tessl.json Brewfile .config/gh/hosts.yml; do hasnt "$os" "$f" any; done
+  for f in Brewfile .config/gh/hosts.yml; do hasnt "$os" "$f" any; done
   ! grep -E '^\.ssh/(id_|.*\.pub|known_hosts)' <<<"$os" || fail "ssh keys must not be managed"
 done
 
