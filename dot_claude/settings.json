@@ -31,12 +31,11 @@
   "enabledPlugins": {
     "security-guidance@claude-plugins-official": true,
     "ponytail@ponytail": true,
-    "rust-analyzer-lsp@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
-    "pyright-lsp@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
     "feature-dev@claude-plugins-official": true,
-    "claude-code-setup@claude-plugins-official": true
+    "claude-code-setup@claude-plugins-official": true,
+    "context7@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "ponytail": {
@@ -52,5 +51,29 @@
   "theme": "dark-daltonized",
   "editorMode": "normal",
   "preferredNotifChannel": "auto",
-  "autoContinueAtUsageLimit": true
+  "autoContinueAtUsageLimit": true,
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/block-generated.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/gofmt.sh"
+          }
+        ]
+      }
+    ]
+  }
 }

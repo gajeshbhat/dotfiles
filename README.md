@@ -17,7 +17,7 @@ untracked `~/.gitconfig.local` for machine-specific settings (signing key etc.).
 
 - Shell: `.bashrc` (Linux; PATH for uv, Go, Rust, fvm/Flutter), `.zshrc` (macOS only)
 - `.vimrc` + `.vimrc.plug` (vim-plug installed and plugins synced on apply), `.screenrc`, `.gitconfig`
-- Claude Code: `~/.claude/settings.json`, `~/.claude/CLAUDE.md` (my working preferences), `~/.claude/statusline.sh`, `~/.claude/skills/workshop-agent`
+- Claude Code: `~/.claude/settings.json`, `~/.claude/CLAUDE.md` (my working preferences), `~/.claude/statusline.sh`, `~/.claude/skills/{workshop-agent,vm-test,draft-pr}`, `~/.claude/agents/hyperplan-critic.md`, `~/.claude/hooks/` (block generated files, gofmt)
 - macOS only (ignored on Linux): `Brewfile` (formulae, casks, App Store, VS Code extensions; `brew bundle` runs on apply), `.zprofile`, `~/.ssh/config`, `~/.tmux.conf`, `~/.gnupg/gpg-agent.conf`, `~/.config/gh/config.yml`
 - macOS: dev tools outside brew (pinned Go tools, `@openrig/cli`, `skillkit`, the Tessl MCP server) by `.chezmoiscripts/*30-dev-tools.sh`
 - `~/.local/bin/dotfiles-backup`
@@ -31,8 +31,8 @@ worktrees from fresh `origin`, auto-continue at usage limits. Statusline:
 `dir (branch) · model · context % [PONYTAIL]`. Unused skills are off (browser, computer-use,
 Office, `morning`, `import-memory`); ponytail's skills are slash-only except `ponytail-review`.
 
-On apply, marketplaces are added, every enabled plugin installed, and the language servers
-for the LSP plugins (rust-analyzer via rustup, gopls via go, pyright via uv) installed if missing:
+On apply, marketplaces are added, every enabled plugin installed, and the language server
+for the LSP plugin (gopls via go) installed if missing:
 
 | Plugin | Marketplace | What for |
 |---|---|---|
@@ -41,7 +41,8 @@ for the LSP plugins (rust-analyzer via rustup, gopls via go, pyright via uv) ins
 | feature-dev | claude-plugins-official | code-explorer/architect/reviewer agents |
 | claude-code-setup | claude-plugins-official | Recommends hooks, skills, MCP servers for a repo |
 | security-guidance | claude-plugins-official | Security warnings on edits and commits |
-| rust-analyzer-lsp, gopls-lsp, pyright-lsp | claude-plugins-official | Code intelligence for Rust, Go, Python |
+| gopls-lsp | claude-plugins-official | Code intelligence for Go |
+| context7 | claude-plugins-official | Live library docs (MCP) |
 
 ### Agents in a Workshop sandbox
 

@@ -18,4 +18,13 @@ out=$(echo '{"model":{"display_name":"Opus"},"workspace":{"current_dir":"/"}}' \
   | CLAUDE_CONFIG_DIR="$home/none" bash dot_claude/executable_statusline.sh)
 [ "$out" = "/ · Opus" ] || fail "statusline minimal: got '$out'"
 
+# hooks: block generated files, pass others; gofmt formats .go
+h=dot_claude/hooks
+echo '{"tool_input":{"file_path":"/r/doc/rest-api.yaml"}}' | bash $h/executable_block-generated.sh 2>/dev/null && fail "generated file not blocked"
+echo '{"tool_input":{"file_path":"/r/lxd/main.go"}}' | bash $h/executable_block-generated.sh || fail "normal file blocked"
+printf 'package x\nfunc  f( ){}\n' >"$home/a.go"
+echo "{\"tool_input\":{\"file_path\":\"$home/a.go\"}}" | bash $h/executable_gofmt.sh
+! command -v gofmt >/dev/null || [ -z "$(gofmt -l "$home/a.go")" ] || fail "gofmt hook did not format"
+jq -e '.hooks.PreToolUse and .hooks.PostToolUse' dot_claude/settings.json >/dev/null || fail "hooks missing in settings"
+
 echo "ok"
