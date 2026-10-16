@@ -20,4 +20,12 @@
 - Keep multi-agent workflows lean (few agents, one review pass), and prefer pinned, well-maintained official sources for tools and packages.
 - When skills or plugins disagree: project instructions first, then this file, then ponytail, then everything else.
 
+## Tool routing
+- "Where/how does X work?" in an unfamiliar repo: `jg "<question>" <root>` (jevgrep) first; exact symbols, strings and filenames: Grep/Glob or gopls.
+- Library or framework API questions: context7 before answering from memory.
+- A plan or diff about to be committed to: `hyperplan-critic` once.
+- Long unattended or risky work: `/workshop-agent`; LXD builds and tests: `/vm-test`, never on the host.
+- Multi-step feature with a written spec requested: `specify` (Spec Kit); otherwise superpowers brainstorming, then TDD.
+- Prose stays terse (Concise style, caveman); code, commits and PR text are written normally.
+
 @../.tessl/RULES.md

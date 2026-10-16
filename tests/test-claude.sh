@@ -27,4 +27,8 @@ echo "{\"tool_input\":{\"file_path\":\"$home/a.go\"}}" | bash $h/executable_gofm
 ! command -v gofmt >/dev/null || [ -z "$(gofmt -l "$home/a.go")" ] || fail "gofmt hook did not format"
 jq -e '.hooks.PreToolUse and .hooks.PostToolUse' dot_claude/settings.json >/dev/null || fail "hooks missing in settings"
 
+jq -e '.enabledPlugins["caveman@caveman"] and .extraKnownMarketplaces.caveman' dot_claude/settings.json >/dev/null || fail "caveman missing"
+grep -q '^name: jevgrep' dot_claude/skills/jevgrep/SKILL.md || fail "jevgrep skill missing"
+grep -q '## Tool routing' dot_claude/CLAUDE.md || fail "routing missing"
+
 echo "ok"
