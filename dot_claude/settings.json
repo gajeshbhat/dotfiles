@@ -17,7 +17,12 @@
     "ponytail:ponytail-gain": "user-invocable-only",
     "ponytail:ponytail-help": "user-invocable-only",
     "ponytail:ponytail-debt": "user-invocable-only",
-    "ponytail:ponytail-audit": "user-invocable-only"
+    "ponytail:ponytail-audit": "user-invocable-only",
+    "caveman:caveman-setup": "off",
+    "caveman:caveman-discover": "off",
+    "caveman:caveman-evidence-review": "off",
+    "caveman:caveman-manage": "off",
+    "caveman:caveman-optimize": "off"
   },
   "worktree": {
     "baseRef": "fresh"

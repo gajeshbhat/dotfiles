@@ -28,7 +28,9 @@ echo "{\"tool_input\":{\"file_path\":\"$home/a.go\"}}" | bash $h/executable_gofm
 jq -e '.hooks.PreToolUse and .hooks.PostToolUse' dot_claude/settings.json >/dev/null || fail "hooks missing in settings"
 
 jq -e '.enabledPlugins["caveman@caveman"] and .extraKnownMarketplaces.caveman' dot_claude/settings.json >/dev/null || fail "caveman missing"
-grep -q '^name: jevgrep' dot_claude/skills/jevgrep/SKILL.md || fail "jevgrep skill missing"
+jq -e ".skillOverrides[\"caveman:caveman-setup\"] == \"off\"" dot_claude/settings.json >/dev/null || fail "caveman cloud skills must be off"
+[ ! -e dot_claude/skills/jevgrep ] || fail "jevgrep must stay removed (needs a hosted provider)"
+!  grep -rqi 'context7\|jevgrep' dot_claude/settings.json dot_claude/skills || fail "hosted-service tools must not be tracked"
 grep -q '## Tool routing' dot_claude/CLAUDE.md || fail "routing missing"
 
 echo "ok"

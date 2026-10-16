@@ -19,9 +19,10 @@
 - For new features, agree the design with me first, briefly; then implement with TDD.
 - Keep multi-agent workflows lean (few agents, one review pass), and prefer pinned, well-maintained official sources for tools and packages.
 - When skills or plugins disagree: project instructions first, then this file, then ponytail, then everything else.
+- Only plugins, skills and tools that work offline with Claude Code itself; no hosted services or third-party API keys (e.g. no context7, no jevgrep).
 
 ## Tool routing
-- "Where/how does X work?" in an unfamiliar repo: `jg "<question>" <root>` (jevgrep) first; exact symbols, strings and filenames: Grep/Glob or gopls.
+- "Where/how does X work?" in an unfamiliar repo: the built-in `Explore` agent (or feature-dev `code-explorer` to trace a flow); exact symbols, strings and filenames: Grep/Glob or gopls.
 - A plan or diff about to be committed to: `hyperplan-critic` once.
 - Long unattended or risky work: `/workshop-agent`; LXD builds and tests: `/vm-test`, never on the host.
 - Multi-step feature with a written spec requested: `specify` (Spec Kit); otherwise superpowers brainstorming, then TDD.
