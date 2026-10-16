@@ -1,5 +1,5 @@
 ---
-name: vm-test
+name: lxd-test-vm
 description: Build, lint or test LXD inside the lxd-test VM (v1) for a worktree, never on the host.
 argument-hint: <worktree-name> [make-target|suite]
 disable-model-invocation: true
