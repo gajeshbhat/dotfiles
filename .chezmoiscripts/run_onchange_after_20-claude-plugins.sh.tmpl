@@ -27,3 +27,15 @@ fi
 if command -v uv >/dev/null 2>&1 && ! command -v specify >/dev/null 2>&1; then
   uv tool install specify-cli --from git+https://github.com/github/spec-kit.git@v1.1.1 >/dev/null 2>&1 && echo "[+] specify"
 fi
+
+# Lemmalog (Datalog agent memory) MCP server: pinned commit, built from source. Needs cargo.
+lm="$HOME/.local/src/lemmalog"
+if command -v cargo >/dev/null 2>&1 && [ ! -x "$lm/target/release/lemmalog-mcp" ]; then
+  mkdir -p "$lm" "$HOME/.lemmalog" && git -C "$lm" init -q \
+    && { git -C "$lm" remote add o https://github.com/JordyZomer/lemmalog 2>/dev/null || true; } \
+    && git -C "$lm" fetch -q --depth 1 o 9cc2cf1bc050ddd67cc1c6b644953377b0b9ef9d \
+    && git -C "$lm" checkout -q FETCH_HEAD \
+    && (cd "$lm" && cargo build --release --features mcp --locked >/dev/null 2>&1) \
+    && claude mcp add --scope user lemmalog --env LEMMALOG_MCP_PATH="$HOME/.lemmalog/memory.snap" -- "$lm/target/release/lemmalog-mcp" >/dev/null 2>&1 \
+    && echo "[+] lemmalog"
+fi
