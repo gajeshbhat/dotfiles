@@ -24,6 +24,7 @@
 ## Tool routing
 - "Where/how does X work?" in an unfamiliar repo: the built-in `Explore` agent (or feature-dev `code-explorer` to trace a flow); exact symbols, strings and filenames: Grep/Glob or gopls.
 - A plan or diff about to be committed to: `hyperplan-critic` once.
+- Prove agent-written Python/Go works (CRAP, mutation, architecture, spec): `/gauntlet`; its policy is `~/.config/gauntlet/policy.toml`, never inside a repo.
 - Long unattended or risky work: `/workshop-agent`; LXD builds and tests: `/vm-test`, never on the host.
 - Multi-step feature with a written spec requested: `specify` (Spec Kit); otherwise superpowers brainstorming, then TDD.
 - Prose stays terse (Concise style, caveman); code, commits and PR text are written normally.
