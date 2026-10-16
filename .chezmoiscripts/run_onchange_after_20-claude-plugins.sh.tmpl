@@ -20,9 +20,9 @@ if command -v go >/dev/null 2>&1 && ! command -v gopls >/dev/null 2>&1 && [ ! -x
   go install golang.org/x/tools/gopls@latest && echo "[+] gopls"
 fi
 
-# CLIs behind the jevgrep skill and Spec Kit, pinned. `jg auth` (provider key) is manual.
-if command -v npm >/dev/null 2>&1 && ! command -v jg >/dev/null 2>&1; then
-  npm install -g --prefix "$HOME/.local" @dzhng/jevgrep@0.8.0 skillkit@1.24.0 >/dev/null 2>&1 && echo "[+] jevgrep, skillkit"
+# SkillKit and Spec Kit CLIs, pinned.
+if command -v npm >/dev/null 2>&1 && ! command -v skillkit >/dev/null 2>&1; then
+  npm install -g --prefix "$HOME/.local" skillkit@1.24.0 >/dev/null 2>&1 && echo "[+] skillkit"
 fi
 if command -v uv >/dev/null 2>&1 && ! command -v specify >/dev/null 2>&1; then
   uv tool install specify-cli --from git+https://github.com/github/spec-kit.git@v1.1.1 >/dev/null 2>&1 && echo "[+] specify"

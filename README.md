@@ -17,7 +17,7 @@ untracked `~/.gitconfig.local` for machine-specific settings (signing key etc.).
 
 - Shell: `.bashrc` (Linux; PATH for uv, Go, Rust, fvm/Flutter), `.zshrc` (macOS only)
 - `.vimrc` + `.vimrc.plug` (vim-plug installed and plugins synced on apply), `.screenrc`, `.gitconfig`
-- Claude Code: `~/.claude/settings.json`, `~/.claude/CLAUDE.md` (my working preferences), `~/.claude/statusline.sh`, `~/.claude/skills/{workshop-agent,vm-test,draft-pr,jevgrep,lemmalog}`, `~/.claude/agents/hyperplan-critic.md`, `~/.claude/hooks/` (block generated files, gofmt)
+- Claude Code: `~/.claude/settings.json`, `~/.claude/CLAUDE.md` (my working preferences), `~/.claude/statusline.sh`, `~/.claude/skills/{workshop-agent,vm-test,draft-pr,lemmalog}`, `~/.claude/agents/hyperplan-critic.md`, `~/.claude/hooks/` (block generated files, gofmt)
 - macOS only (ignored on Linux): `Brewfile` (formulae, casks, App Store, VS Code extensions; `brew bundle` runs on apply), `.zprofile`, `~/.ssh/config`, `~/.tmux.conf`, `~/.gnupg/gpg-agent.conf`, `~/.config/gh/config.yml`
 - macOS: dev tools outside brew (pinned Go tools, `@openrig/cli`, `skillkit`, the Tessl MCP server) by `.chezmoiscripts/*30-dev-tools.sh`
 - `~/.local/bin/dotfiles-backup`
@@ -44,7 +44,7 @@ for the LSP plugin (gopls via go) installed if missing:
 | gopls-lsp | claude-plugins-official | Code intelligence for Go |
 | caveman | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | Terse replies (plugin only, not the proxy) |
 
-CLIs installed on apply, pinned: `jg` ([jevgrep](https://github.com/dzhng/jevgrep), run `jg auth` once), `skillkit`,
+Only local, offline-capable tools (no hosted services or API keys). CLIs installed on apply, pinned: `skillkit`,
 `specify` ([Spec Kit](https://github.com/github/spec-kit)), and the [lemmalog](https://github.com/JordyZomer/lemmalog) MCP server (agent memory; built with cargo from a pinned commit, skill tracked here). `~/.claude/CLAUDE.md` has a short tool-routing section.
 
 ### Agents in a Workshop sandbox
