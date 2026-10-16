@@ -46,7 +46,7 @@ for the LSP plugin (gopls via go) installed if missing:
 | caveman | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | Terse replies (plugin only, not the proxy) |
 
 CLIs installed on apply, pinned: `jg` ([jevgrep](https://github.com/dzhng/jevgrep), run `jg auth` once), `skillkit`,
-`specify` ([Spec Kit](https://github.com/github/spec-kit)). `~/.claude/CLAUDE.md` has a short tool-routing section.
+`specify` ([Spec Kit](https://github.com/github/spec-kit)), and the [lemmalog](https://github.com/JordyZomer/lemmalog) MCP server (agent memory; built with cargo from a pinned commit). `~/.claude/CLAUDE.md` has a short tool-routing section.
 
 ### Agents in a Workshop sandbox
 
