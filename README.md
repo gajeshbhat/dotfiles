@@ -31,6 +31,8 @@ worktrees from fresh `origin`, auto-continue at usage limits. Statusline:
 `dir (branch) · model · context % [PONYTAIL]`. Unused skills are off (browser, computer-use,
 Office, `morning`, `import-memory`); ponytail's skills are slash-only except `ponytail-review`.
 
+Context budget: `skillOverrides` has four tiers: `on` (name + description in every session), `name-only`, `user-invocable-only` (hidden from the model, `/name` works), `off`. New plugins start slash-only; `tests/test-claude.sh` pins the tiers.
+
 On apply, marketplaces are added, every enabled plugin installed, and the language server
 for the LSP plugin (gopls via go) installed if missing:
 
@@ -43,6 +45,10 @@ for the LSP plugin (gopls via go) installed if missing:
 | security-guidance | claude-plugins-official | Security warnings on edits and commits |
 | gopls-lsp | claude-plugins-official | Code intelligence for Go |
 | caveman | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | Terse replies (plugin only, not the proxy) |
+| mattpocock-skills | claude-plugins-official | Grilling, spec/ticket flows, domain modelling. Mostly slash-only |
+| agent-skills | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | Spec/plan/build/ship skills. Slash-only except `source-driven-development`, `security-and-hardening` (name-only) |
+| pstack | [cursor/plugins](https://github.com/cursor/plugins) | Principles and workflows (`/tdd`, `/blast-radius`, ...), all slash-only |
+| gauntlet | [gajeshbhat/gauntlet](https://github.com/gajeshbhat/gauntlet) | Own quality-gate skill; the only new auto-invocable skill |
 
 Only local, offline-capable tools (no hosted services or API keys). CLIs installed on apply, pinned: `skillkit`,
 `specify` ([Spec Kit](https://github.com/github/spec-kit)), and the [lemmalog](https://github.com/JordyZomer/lemmalog) MCP server (agent memory; built with cargo from a pinned commit, skill tracked here). `~/.claude/CLAUDE.md` has a short tool-routing section.
