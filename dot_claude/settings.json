@@ -22,7 +22,48 @@
     "caveman:caveman-discover": "off",
     "caveman:caveman-evidence-review": "off",
     "caveman:caveman-manage": "off",
-    "caveman:caveman-optimize": "off"
+    "caveman:caveman-optimize": "off",
+    "mattpocock-skills:domain-modeling": "name-only",
+    "mattpocock-skills:codebase-design": "name-only",
+    "mattpocock-skills:git-guardrails-claude-code": "name-only",
+    "mattpocock-skills:grilling": "user-invocable-only",
+    "mattpocock-skills:tdd": "user-invocable-only",
+    "mattpocock-skills:diagnosing-bugs": "user-invocable-only",
+    "mattpocock-skills:code-review": "user-invocable-only",
+    "mattpocock-skills:prototype": "user-invocable-only",
+    "mattpocock-skills:pr": "user-invocable-only",
+    "mattpocock-skills:research": "user-invocable-only",
+    "mattpocock-skills:wizard": "user-invocable-only",
+    "mattpocock-skills:writing-for-agents": "user-invocable-only",
+    "mattpocock-skills:setup-pre-commit": "off",
+    "mattpocock-skills:migrate-to-shoehorn": "off",
+    "mattpocock-skills:scaffold-exercises": "off",
+    "agent-skills:source-driven-development": "name-only",
+    "agent-skills:security-and-hardening": "name-only",
+    "agent-skills:using-agent-skills": "user-invocable-only",
+    "agent-skills:planning-and-task-breakdown": "user-invocable-only",
+    "agent-skills:context-engineering": "user-invocable-only",
+    "agent-skills:ci-cd-and-automation": "user-invocable-only",
+    "agent-skills:constraint-driven-development": "user-invocable-only",
+    "agent-skills:deprecation-and-migration": "user-invocable-only",
+    "agent-skills:idea-refine": "user-invocable-only",
+    "agent-skills:incremental-implementation": "user-invocable-only",
+    "agent-skills:api-and-interface-design": "user-invocable-only",
+    "agent-skills:test-driven-development": "user-invocable-only",
+    "agent-skills:documentation-and-adrs": "user-invocable-only",
+    "agent-skills:spec-driven-development": "user-invocable-only",
+    "agent-skills:doubt-driven-development": "user-invocable-only",
+    "agent-skills:git-workflow-and-versioning": "user-invocable-only",
+    "agent-skills:shipping-and-launch": "user-invocable-only",
+    "agent-skills:debugging-and-error-recovery": "user-invocable-only",
+    "agent-skills:observability-and-instrumentation": "user-invocable-only",
+    "agent-skills:code-simplification": "user-invocable-only",
+    "agent-skills:code-review-and-quality": "user-invocable-only",
+    "agent-skills:interview-me": "user-invocable-only",
+    "agent-skills:performance-optimization": "user-invocable-only",
+    "agent-skills:frontend-ui-engineering": "user-invocable-only",
+    "agent-skills:browser-testing-with-devtools": "off",
+    "pstack:setup-pstack": "off"
   },
   "worktree": {
     "baseRef": "fresh"
@@ -43,7 +84,11 @@
     "feature-dev@claude-plugins-official": true,
     "claude-code-setup@claude-plugins-official": true,
     "caveman@caveman": true,
-    "cc-plugin-you-should-know@builtin": true
+    "cc-plugin-you-should-know@builtin": true,
+    "mattpocock-skills@claude-plugins-official": true,
+    "agent-skills@addy-agent-skills": true,
+    "pstack@cursor-plugins": true,
+    "gauntlet@gauntlet": true
   },
   "extraKnownMarketplaces": {
     "ponytail": {
@@ -56,6 +101,24 @@
       "source": {
         "source": "github",
         "repo": "JuliusBrussee/caveman"
+      }
+    },
+    "addy-agent-skills": {
+      "source": {
+        "source": "github",
+        "repo": "addyosmani/agent-skills"
+      }
+    },
+    "cursor-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "cursor/plugins"
+      }
+    },
+    "gauntlet": {
+      "source": {
+        "source": "github",
+        "repo": "gajeshbhat/gauntlet"
       }
     }
   },

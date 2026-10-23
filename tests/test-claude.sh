@@ -31,6 +31,13 @@ jq -e '.enabledPlugins["caveman@caveman"] and .extraKnownMarketplaces.caveman' d
 jq -e ".skillOverrides[\"caveman:caveman-setup\"] == \"off\"" dot_claude/settings.json >/dev/null || fail "caveman cloud skills must be off"
 [ ! -e dot_claude/skills/jevgrep ] || fail "jevgrep must stay removed (needs a hosted provider)"
 !  grep -rqi 'context7\|jevgrep' dot_claude/settings.json dot_claude/skills || fail "hosted-service tools must not be tracked"
+# curated skills: new plugins enabled, only gauntlet auto-invocable in full; the rest name-only, slash-only or off
+for pl in mattpocock-skills@claude-plugins-official agent-skills@addy-agent-skills pstack@cursor-plugins gauntlet@gauntlet; do
+  jq -e --arg p "$pl" '.enabledPlugins[$p]' dot_claude/settings.json >/dev/null || fail "$pl not enabled"
+done
+jq -e '.extraKnownMarketplaces["addy-agent-skills"] and .extraKnownMarketplaces["cursor-plugins"] and .extraKnownMarketplaces.gauntlet' dot_claude/settings.json >/dev/null || fail "marketplaces missing"
+jq -e '.skillOverrides["agent-skills:security-and-hardening"] == "name-only" and .skillOverrides["agent-skills:test-driven-development"] == "user-invocable-only" and .skillOverrides["pstack:setup-pstack"] == "off"' dot_claude/settings.json >/dev/null || fail "skill tiers wrong"
+jq -e '.skillOverrides | has("gauntlet:gauntlet") | not' dot_claude/settings.json >/dev/null || fail "gauntlet must stay auto-invocable"
 grep -q '## Tool routing' dot_claude/CLAUDE.md || fail "routing missing"
 
 echo "ok"
